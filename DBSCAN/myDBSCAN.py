@@ -54,23 +54,3 @@ class DBSCAN:
                                 result[j] = t
         
         print(np.unique_all(result))
-
-data = np.loadtxt('datasets/ionosphere.txt', dtype=float)
-ks= np.array([2.32611813, 2.41781899, 2.48996524, 2.55961209, 2.61746644]) #  - k bo'yicha radiuslar
-for i in range(len(ks)):
-    myObj = DBSCAN(data[:-1,], i + 2, ks[i])
-    myObj.clastering()
-    print()
-
-#### test qilib ko'rish
-
-# r = 2
-# fig, ax = plt.subplots()
-# for (x, y) in data:
-#     circle = plt.Circle((x, y), radius=r, color='blue', fill=False,  linestyle='--', alpha=0.7)
-#     ax.add_patch(circle)
-#     plt.scatter(x, y, color='red')
-
-# ax.set_aspect('equal', adjustable='box')
-# plt.grid(True, linestyle="--", alpha=0.5)
-# plt.show()
