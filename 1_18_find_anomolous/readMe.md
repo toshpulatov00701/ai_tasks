@@ -1,6 +1,6 @@
 # 1.18. LOF (Local Outlier Factor) asosida anomal ob’ektlarni aniqlash
 
-Berilgan $A=\{a_{ij}\}_{mn}$ jadvalda $E_{0} = (S_{1}, \ldots, S_{m})$ ob’ektlarning n miqdoriy alomatlar bo‘yicha tavsifi keltirilgan. Ikkita $S_{u}, S_{v} \in E_{0}$ ob’ektlar o‘rtasidagi masofa $\rho(x,y)$ еvklid metrikasi bilan hisoblanadi. Tanlanmaning $S$ ob’ektining $k$ ta eng yaqin qo‘shnilarini $N_{k}(S)$ bilan, $k\text{-}dis(S)$ orqali $S$ ob’ektdan $k$ – yaqin qo‘shnigacha bo‘lgan masofani belgilaylik. $S_{v}$ ob’ektdan $S_{u}$ ob’ektgacha erishiluvchi masofa $RD_{k}(S_{u}, S_{v}) = \max \{\, k\text{-}dis(S_{v}), \; \rho(S_{u}, S_{v}) \,\}$ sifatida aniqlanadi (1.a-rasmga qarang).
+Berilgan $A = \{ a_{ij} \}_{m \times n}$ jadvalda $E_{0} = (S_{1}, \ldots, S_{m})$ ob’ektlarning n miqdoriy alomatlar bo‘yicha tavsifi keltirilgan. Ikkita $S_{u}, S_{v} \in E_{0}$ ob’ektlar o‘rtasidagi masofa $\rho(x,y)$ еvklid metrikasi bilan hisoblanadi. Tanlanmaning $S$ ob’ektining $k$ ta eng yaqin qo‘shnilarini $N_{k}(S)$ bilan, $k\text{-}dis(S)$ orqali $S$ ob’ektdan $k$ – yaqin qo‘shnigacha bo‘lgan masofani belgilaylik. $S_{v}$ ob’ektdan $S_{u}$ ob’ektgacha erishiluvchi masofa $RD_{k}(S_{u}, S_{v}) = \max \{\, k\text{-}dis(S_{v}), \; \rho(S_{u}, S_{v}) \,\}$ sifatida aniqlanadi (1.a-rasmga qarang).
 Su ob’ektga erishuvchanlikning lokal zichligi
 
 $$
