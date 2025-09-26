@@ -6,6 +6,8 @@ Ikkita $$\(S_{u}, S_{v} \in E_{0}\)$$ obyektlar o‘rtasidagi masofa $\(\rho(x,y
 
 Tanlanmaning \(S\) obyektining \(k\) ta eng yaqin qo‘shnilarini $\(N_{k}(S)\)$ bilan, \(k\text{-}dis(S)\) orqali \(S\) obyektidan \(k\) – yaqin qo‘shnigacha bo‘lgan masofani belgilaylik.
 
+Berilgan $A=\{a_{ij}\}_{mn}$ jadvalda $E_{0} = (S_{1}, \ldots, S_{m})$ obyektlarning
+
 $$
 RD_{k}(S_{u}, S_{v})=\max\{\,k\text{-}dis(S_{v}),\ \rho(S_{u},S_{v})\,\}
 $$
