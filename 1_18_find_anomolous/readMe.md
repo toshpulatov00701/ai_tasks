@@ -1,8 +1,8 @@
 # 1.18. LOF (Local Outlier Factor) asosida anomal ob’ektlarni aniqlash
 
-Berilgan $\(A=\{a_{ij}\}_{mn}\)$ jadvalda $\(E_{0} = (S_{1}, \ldots, S_{m})\)$ obyektlarning $\(n\)$ miqdoriy alomatlar bo‘yicha tavsifi keltirilgan.
+Berilgan $$\(A=\{a_{ij}\}_{mn}\)$$ jadvalda $$\(E_{0} = (S_{1}, \ldots, S_{m})\)$$ obyektlarning $\(n\)$ miqdoriy alomatlar bo‘yicha tavsifi keltirilgan.
 
-Ikkita $\(S_{u}, S_{v} \in E_{0}\)$ obyektlar o‘rtasidagi masofa $\(\rho(x,y)\)$ Evklid metrikasi bilan hisoblanadi.
+Ikkita $$\(S_{u}, S_{v} \in E_{0}\)$$ obyektlar o‘rtasidagi masofa $\(\rho(x,y)\)$ Evklid metrikasi bilan hisoblanadi.
 
 Tanlanmaning \(S\) obyektining \(k\) ta eng yaqin qo‘shnilarini $\(N_{k}(S)\)$ bilan, \(k\text{-}dis(S)\) orqali \(S\) obyektidan \(k\) – yaqin qo‘shnigacha bo‘lgan masofani belgilaylik.
 
