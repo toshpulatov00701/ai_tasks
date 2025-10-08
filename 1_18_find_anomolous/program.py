@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.neighbors import LocalOutlierFactor
 from sklearn.metrics import accuracy_score, precision_score, f1_score
-dddd
+
 # Dataset tayyorlash
 np.random.seed(42)
 anomal_data = np.random.uniform(10, 100, size=(20, 2))
