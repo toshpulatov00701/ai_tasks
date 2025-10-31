@@ -5,16 +5,13 @@ import sys
 from distanceMetrics import dMetrics
 
 class ClassicDBSCAN(dMetrics):
-    data = None
     min_samples = None                   
     eps = None
     distances_matrix = None    # Obyektlar o'rtasidagi masofalar.
-    # m = None                   # Obyektlar soni
     c_labels = None            # Klasterlar
     metric_type = None
         
     def __init__(self, data, eps, min_samples, metric_type, normal_type=None):
-        # self.data = data
         super().__init__(data, metric_type, normal_type)
         sys.setrecursionlimit(int((self.m + 1) * self.m / 2))                  # Klasterlarni yig'ayotganda rekursiv funksiyaning ichiki kirishi python ruxsat etgan(1000) dan oshganda ham ishlashi uchun. Eng chuqur kirish barcha obyektlar bitta klasterga tushganda bo'ladi. Bizdagi 300ta obyekt holatida 1-obyektga kirish 999, 2-obyektga kirish 998, 3-obyektga kirish 997,... Oxirgi obyektlarga k ning qiymatidan kelib chiqib to'xtaydi.
         self.eps= eps
@@ -59,8 +56,22 @@ class ClassicDBSCAN(dMetrics):
                     setClaster(new_arr, t)
                     t += 1
         self.c_labels = result
-
-    def getStatuses(self):
+        
+    def getStatuses(self):               # Faqat anomal - 2, chegara va yadro - 1
+        m = self.m
+        c_labels  = self.c_labels
+        obj_statuses = np.ones(m, dtype=int)
+        objs_in_cores = self.objsInCores()
+        for i in range(m):
+            if len(objs_in_cores[i]) >= self.min_samples:
+                obj_statuses[i] = 1                                                  # Yadroviy
+            elif c_labels[i] != -1 and len(objs_in_cores[i]) < self.min_samples:
+                obj_statuses[i] = 1                                                  # Chegaraviy
+            elif c_labels[i] == -1:
+                obj_statuses[i] = 2                                                  # Anomal
+        return obj_statuses
+    
+    def getStatuses3(self):
         m = self.m
         c_labels  = self.c_labels
         obj_statuses = np.ones(m, dtype=int)
