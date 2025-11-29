@@ -6,22 +6,33 @@ import time
 
 start_time = time.perf_counter()
 
-X = np.loadtxt('datasets/uzbkares.txt', dtype=float)
-eps = 0.128
-min_samples=5
+X = np.loadtxt('datasets/wine_1.txt', dtype=float)
+X = X[:,:-1]
+eps = 0.48164513185884156 * 0.7209064582519837
+min_samples=15
 
-obj = ClassicDBSCAN(X, eps=eps, min_samples=min_samples, metric_type='juravlov')
-with open('datasets/resultmy.txt', 'w') as ff:
-    pass
-for res in obj.c_labels:
-    with open('datasets/resultmy.txt', 'a') as ff:
-        ff.write(str(res) + '\n')
+obj = ClassicDBSCAN(X, eps=eps, min_samples=min_samples, metric_type='euclidean', normal_type='normalization')
+u_label = np.unique_all(obj.c_labels)
+print(u_label.values, u_label.counts)
+# with open('datasets/resultmy.txt', 'w') as ff:
+#     pass
+# for res in obj.c_labels:
+#     with open('datasets/resultmy.txt', 'a') as ff:
+#         ff.write(str(res) + '\n')
 
 ############################################
 ## sklearn
 
-# db = DBSCAN(eps=eps, min_samples=min_samples).fit(X[:-1,:])
-# labels = db.labels_
+def normalize_minus1_plus1(X):
+    X_min = X.min(axis=0)
+    X_max = X.max(axis=0)
+    return 2 * (X - X_min) / (X_max - X_min) - 1
+
+X = normalize_minus1_plus1(X[:-1,:])
+
+db = DBSCAN(eps=eps, min_samples=min_samples, metric='euclidean').fit(X)
+labels = np.unique_all(db.labels_)
+print(labels.values, labels.counts)
 # core_indices = db.core_sample_indices_
 # status = np.array([2] * len(X[:-1,:]))
 # status[core_indices] = 1
